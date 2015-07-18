@@ -3,6 +3,9 @@ module.exports = function(grunt) {
     'use strict';
 
     var path = require('path');
+    var transports = grunt.file.exists('config/nodemailer-transport.json') ? grunt.file.readJSON('config/nodemailer-transport.json') : {};
+    var litmusConf = grunt.file.exists('config/litmus.json') ? grunt.file.readJSON('config/litmus.json') : {};
+    var hostsConf = grunt.file.exists('config/hosts.json') ? grunt.file.readJSON('config/hosts.json') : {};
 
     require('load-grunt-tasks')(grunt);
 
@@ -38,23 +41,7 @@ module.exports = function(grunt) {
          * Hosts Configuration
          * ===============================
          */
-        hosts: {
-            //enter here yout production host details
-            production: {
-                url: 'http://www.mydomain.com',
-                host: 'remote.host',
-                username: 'username',
-                path: '/path/to/www'
-            },
-            development: {
-                //this is the default development domain
-                url: 'http://localhost',
-                host: 'local.host',
-                username: 'username',
-                path: '/path/to/www',
-                port: 8000
-            }
-        },
+        hosts: hostsConf,
 
 
         /**
@@ -78,7 +65,17 @@ module.exports = function(grunt) {
                     src: ['**/*.{gif,png,jpg}'],
                     dest: '<%= paths.tmp %>/images'
                 }]
+            },
+
+            images_dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= paths.src %>/images',
+                    src: ['**/*.{gif,png,jpg}'],
+                    dest: '<%= paths.dist %>/images'
+                }]
             }
+
         },
 
 
@@ -94,7 +91,8 @@ module.exports = function(grunt) {
                 //see https://github.com/gruntjs/grunt-contrib-compass
                 config: path.normalize(__dirname + '/vendor/compass-config.rb'),
                 cssDir: '<%= paths.tmp %>/css',
-                imagesDir: '<%= paths.tmp %>/images'
+                imagesDir: '<%= paths.tmp %>/images',
+                bundleExec: grunt.file.exists(path.normalize(process.cwd() + 'Gemfile'))
             },
 
             watch: {
@@ -137,9 +135,10 @@ module.exports = function(grunt) {
 
         /**
          * Environment Related Tasks (used internally)
+         * FIXME: DEPRECATED
          * ===============================
          */
-        preprocess: {
+        /*preprocess: {
             options: {
                 inline: true
             },
@@ -156,10 +155,28 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '<%= paths.tmp %>/',
                     src: ['<%= paths.email %>'],
-                    dest: '<%= paths.dist %>/'
+                    dest: '<%= paths.tmp %>/'
+                }]
+            }
+        },*/
+
+
+        /**
+         * Section comment block
+         * ===============================
+         */
+        htmlrefs: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= paths.tmp %>/',
+                    src: ['<%= paths.email %>'],
+                    dest: '<%= paths.tmp %>/'
                 }]
             }
         },
+
+
 
         /**
          * Premailer Parser Tasks (used internally)
@@ -175,11 +192,12 @@ module.exports = function(grunt) {
                     //see https://github.com/dwightjack/grunt-premailer#options
                     //css is used to be sure that external CSS files are parsed
                     css: ['<%= paths.dist %>/css/*.css'],
-                    baseUrl: '<%= hosts.production.url %>/'
+                    baseUrl: '<%= hosts.production.url %>/',
+                    preserveStyles: false
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= paths.dist %>/',
+                    cwd: '<%= paths.tmp %>/',
                     src: ['<%= paths.email %>'],
                     dest: '<%= paths.dist %>/'
                 }]
@@ -192,7 +210,7 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= paths.dist %>/',
+                    cwd: '<%= paths.tmp %>/',
                     src: ['<%= paths.email %>'],
                     dest: '<%= paths.dist %>/',
                     ext: '.txt'
@@ -209,7 +227,11 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '<%= paths.tmp %>/',
                     src: ['<%= paths.email %>'],
-                    dest: '<%= paths.tmp %>/'
+                    dest: '<%= paths.tmp %>/',
+                    //need this since nokogiri breaks when src and dest are the same file
+                    rename: function (src, dest) {
+                        return '<%= paths.tmp %>/parsed-' + dest;
+                    }
                 }]
             },
             dev_txt: {
@@ -222,7 +244,11 @@ module.exports = function(grunt) {
                     cwd: '<%= paths.tmp %>/',
                     src: ['<%= paths.email %>'],
                     dest: '<%= paths.tmp %>/',
-                    ext: '.txt'
+                    ext: '.txt',
+                    //need this since nokogiri breaks when src and dest are the same file
+                    rename: function (src, dest) {
+                        return '<%= paths.tmp %>/parsed-' + dest;
+                    }
                 }]
             }
         },
@@ -240,9 +266,29 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= paths.tmp %>/images',
+                    cwd: '<%= paths.dist %>/images',
                     src: ['**/*.{gif,png,jpg}'],
                     dest: '<%= paths.dist %>/images'
+                }]
+            }
+        },
+
+
+        htmlmin: {
+            dist: {
+                options: {
+                    keepClosingSlash: true,
+                    conservativeCollapse: true,
+                    minifyCSS: {
+                        noAdvanced: true,
+                        compatibility: 'ie8'
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= paths.dist %>/',
+                    src: ['<%= paths.email %>'],
+                    dest: '<%= paths.dist %>/'
                 }]
             }
         },
@@ -275,7 +321,7 @@ module.exports = function(grunt) {
                  * }
                  */
                 /* ,*/
-                transport: grunt.file.readJSON('config/nodemailer-transport.json'),
+                transport: transports,
 
                 message: {
                     from: '<John Doe> john.doe@gmail.com'
@@ -285,7 +331,7 @@ module.exports = function(grunt) {
                 // HTML and TXT email
                 // A collection of recipients
                 recipients: [{
-                    email: 'jane.doe@gmail.com',
+                    email: 'marco.solazzi@gmail.com',
                     name: 'Jane Doe'
                 }]
             },
@@ -295,7 +341,7 @@ module.exports = function(grunt) {
             },
 
             dev: {
-                src: ['<%= paths.tmp %>/<%= paths.email %>']
+                src: ['<%= paths.tmp %>/parsed-<%= paths.email %>']
             }
 
         },
@@ -308,7 +354,7 @@ module.exports = function(grunt) {
         watch: {
             html: {
                 files: ['<%= paths.src %>/<%= paths.email %>', '<%= paths.src %>/inc/**/*.html', '<%= paths.data %>'],
-                tasks: ['render', 'preprocess:dev']
+                tasks: ['render']
             },
             images: {
                 files: ['<%= paths.src %>/images/**/*.{gif,png,jpg}'],
@@ -326,6 +372,7 @@ module.exports = function(grunt) {
             }
         },
 
+
         /**
          * Concurrent Task (used internally)
          * ===============================
@@ -336,6 +383,7 @@ module.exports = function(grunt) {
             },
             dev: ['watch', 'compass:watch']
         },
+
 
         /**
          * Server Tasks (used internally)
@@ -363,8 +411,66 @@ module.exports = function(grunt) {
                 }
             }
 
-        }
+        },
 
+
+        /**
+         * Remote testing
+         * ===============================
+         */
+        litmus: {
+            options: litmusConf,
+            dist: {
+                options: {
+                    //checkout https://yourprofilekey.litmus.com/emails/clients.xml
+                    //for client list
+                    //see https://github.com/jeremypeter/grunt-litmus for details
+                    clients: ['iphone5s', 'chromegmailnew']
+                },
+                src: ['<%= paths.dist %>/<%= paths.email %>']
+            }
+        },
+
+
+        /**
+         * Deploy via FTP
+         * ===============================
+         */
+        rsync: {
+            options: {
+                recursive: true,
+                compareMode: 'checksum',
+                syncDestIgnoreExcl: true,
+                args: ['--verbose', '--progress', '--cvs-exclude'],
+            },
+
+            dist: {
+                options: {
+                    src: '<%= paths.dist %>/',
+                    dest: '<%= hosts.production.path %>',
+                    host: '<%= hosts.production.username %>@<%= hosts.production.host %>'
+                }
+            }
+        },
+
+
+        /**
+         * Deploy via rsync
+         * ===============================
+         */
+        'ftp-deploy': {
+            dist: {
+                auth: {
+                    host: '<%= hosts.production.host %>',
+                    port: 21,
+                    username: '<%= hosts.production.username %>',
+                    password: '<%= hosts.production.password %>',
+                    authKey: false
+                },
+                src: '<%= paths.dist %>',
+                dest: '<%= hosts.production.path %>'
+            }
+        }
     });
 
     grunt.registerTask('default', 'dev');
@@ -372,10 +478,9 @@ module.exports = function(grunt) {
     //(used internally)
     grunt.registerTask('base_dev', [
         'clean',
-        'copy',
+        'copy:images',
         'compass:dev',
-        'render',
-        'preprocess:dev'
+        'render'
     ]);
 
 
@@ -388,44 +493,59 @@ module.exports = function(grunt) {
 
     grunt.registerTask('dist', [
         'clean',
-        'copy',
+        'copy:images_dist',
         'imagemin',
         'compass:dist',
         'render',
-        'preprocess:dist',
+        'htmlrefs:dist',
         'premailer:dist_html',
-        'premailer:dist_txt'
+        'premailer:dist_txt',
+        'htmlmin:dist'
     ]);
 
-    grunt.registerTask('send', 'Simulates an email delivery.', function() {
-        grunt.task.run([
-            'base_dev',
-            'premailer:dev_html',
-            'premailer:dev_txt',
-            'nodemailer:dev',
-            'connect:send_dev'
-        ]);
+    grunt.registerTask('send', 'Simulates an email delivery.', function(target) {
+        if (Object.keys(transports).length === 0) {
+            grunt.fail.fatal('You need to setup nodemailer transport by adding/editing config/nodemailer-transport.json');
+        }
+        if (target === 'dist') {
+            grunt.task.run(['deploy', 'nodemailer:dist']);
+        } else {
+            grunt.task.run([
+                'base_dev',
+                'premailer:dev_html',
+                'premailer:dev_txt',
+                'nodemailer:dev',
+                'connect:send_dev'
+            ]);
+        }
+    });
+
+    grunt.registerTask('ftp', 'ftp-deploy alias', function (target) {
+        grunt.task.run(['ftp-deploy', target].filter(Boolean).join(':'));
     });
 
 
+    grunt.registerTask('deploy', 'Deploy compiled email to remote host.', function() {
+        var deployTask = grunt.config.get('hosts.production.deploy');
+        var taskList = ['dist'];
+        if (!deployTask) {
+            grunt.fail.fatal('No deploy method found. Did you configured your config/hosts.json?');
+        }
+        if (['ftp', 'rsync', 'none'].indexOf(deployTask) === -1) {
+            grunt.fail.fatal('Deploy methods may be either "ftp", "rsync" or "none". "' + deployTask + '" was passed in.');
+        }
+        if (deployTask !== 'none') {
+            taskList.push(deployTask + ':dist');
+        }
+        grunt.task.run(taskList);
 
-    // grunt.registerTask('send', 'Simulates an email delivery. Either use "send:dev" or "send:dist"', function(env) {
-    //     if (env === 'dev') {
-    //         grunt.task.run([
-    //             'base_dev',
-    //             'premailer:dev_html',
-    //             'premailer:dev_txt',
-    //             'nodemailer:dev',
-    //             'connect:send_dev'
-    //         ]);
-    //     } else if (env === 'dist') {
-    //         grunt.task.run([
-    //             'dist',
-    //             'nodemailer:dist'
-    //         ]);
-    //     } else {
-    //         grunt.fail.fatal('Test environment needed. Either use "send:dev" or "send:dist"');
-    //     }
-    // });
+    });
+
+    grunt.registerTask('test', 'Production email testing', function () {
+        if (Object.keys(litmusConf).length === 0) {
+            grunt.fail.fatal('You need to setup your Litmus account details by adding/editing config/litmus.json');
+        }
+        grunt.task.run(['deploy', 'litmus:dist']);
+    });
 
 };

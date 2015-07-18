@@ -1,0 +1,1087 @@
+/**********************************************
+* Ink v1.0.5 - Copyright 2013 ZURB Inc        *
+**********************************************/
+/* Client-specific Styles & Reset */
+/* line 7, ../../src/scss/_ink.scss */
+#outlook a {
+  padding: 0;
+}
+
+/* line 11, ../../src/scss/_ink.scss */
+body {
+  width: 100% !important;
+  min-width: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 20, ../../src/scss/_ink.scss */
+.ExternalClass {
+  width: 100%;
+}
+
+/* line 24, ../../src/scss/_ink.scss */
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+  line-height: 100%;
+}
+
+/* line 33, ../../src/scss/_ink.scss */
+#backgroundTable {
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+  line-height: 100% !important;
+}
+
+/* line 40, ../../src/scss/_ink.scss */
+img {
+  outline: none;
+  text-decoration: none;
+  -ms-interpolation-mode: bicubic;
+  width: auto;
+  max-width: 100%;
+  float: left;
+  clear: both;
+  display: block;
+}
+
+/* line 51, ../../src/scss/_ink.scss */
+center {
+  width: 100%;
+  min-width: 580px;
+}
+
+/* line 56, ../../src/scss/_ink.scss */
+a img {
+  border: none;
+}
+
+/* line 60, ../../src/scss/_ink.scss */
+p {
+  margin: 0 0 0 10px;
+}
+
+/* line 64, ../../src/scss/_ink.scss */
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+/* line 69, ../../src/scss/_ink.scss */
+td {
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  border-collapse: collapse !important;
+}
+
+/* line 77, ../../src/scss/_ink.scss */
+table, tr, td {
+  padding: 0;
+  vertical-align: top;
+  text-align: left;
+}
+
+/* line 83, ../../src/scss/_ink.scss */
+hr {
+  color: #d9d9d9;
+  background-color: #d9d9d9;
+  height: 1px;
+  border: none;
+}
+
+/* Responsive Grid */
+/* line 92, ../../src/scss/_ink.scss */
+table.body {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 97, ../../src/scss/_ink.scss */
+table.container {
+  width: 580px;
+  margin: 0 auto;
+  text-align: inherit;
+}
+
+/* line 103, ../../src/scss/_ink.scss */
+table.row {
+  padding: 0px;
+  width: 100%;
+  position: relative;
+}
+
+/* line 109, ../../src/scss/_ink.scss */
+table.container table.row {
+  display: block;
+}
+
+/* line 113, ../../src/scss/_ink.scss */
+td.wrapper {
+  padding: 10px 20px 0px 0px;
+  position: relative;
+}
+
+/* line 118, ../../src/scss/_ink.scss */
+table.columns,
+table.column {
+  margin: 0 auto;
+}
+
+/* line 123, ../../src/scss/_ink.scss */
+table.columns td,
+table.column td {
+  padding: 0px 0px 10px;
+}
+
+/* line 128, ../../src/scss/_ink.scss */
+table.columns td.sub-columns,
+table.column td.sub-columns,
+table.columns td.sub-column,
+table.column td.sub-column {
+  padding-right: 10px;
+}
+
+/* line 135, ../../src/scss/_ink.scss */
+td.sub-column, td.sub-columns {
+  min-width: 0px;
+}
+
+/* line 139, ../../src/scss/_ink.scss */
+table.row td.last,
+table.container td.last {
+  padding-right: 0px;
+}
+
+/* line 144, ../../src/scss/_ink.scss */
+table.one {
+  width: 30px;
+}
+
+/* line 145, ../../src/scss/_ink.scss */
+table.two {
+  width: 80px;
+}
+
+/* line 146, ../../src/scss/_ink.scss */
+table.three {
+  width: 130px;
+}
+
+/* line 147, ../../src/scss/_ink.scss */
+table.four {
+  width: 180px;
+}
+
+/* line 148, ../../src/scss/_ink.scss */
+table.five {
+  width: 230px;
+}
+
+/* line 149, ../../src/scss/_ink.scss */
+table.six {
+  width: 280px;
+}
+
+/* line 150, ../../src/scss/_ink.scss */
+table.seven {
+  width: 330px;
+}
+
+/* line 151, ../../src/scss/_ink.scss */
+table.eight {
+  width: 380px;
+}
+
+/* line 152, ../../src/scss/_ink.scss */
+table.nine {
+  width: 430px;
+}
+
+/* line 153, ../../src/scss/_ink.scss */
+table.ten {
+  width: 480px;
+}
+
+/* line 154, ../../src/scss/_ink.scss */
+table.eleven {
+  width: 530px;
+}
+
+/* line 155, ../../src/scss/_ink.scss */
+table.twelve {
+  width: 580px;
+}
+
+/* line 157, ../../src/scss/_ink.scss */
+table.one center {
+  min-width: 30px;
+}
+
+/* line 158, ../../src/scss/_ink.scss */
+table.two center {
+  min-width: 80px;
+}
+
+/* line 159, ../../src/scss/_ink.scss */
+table.three center {
+  min-width: 130px;
+}
+
+/* line 160, ../../src/scss/_ink.scss */
+table.four center {
+  min-width: 180px;
+}
+
+/* line 161, ../../src/scss/_ink.scss */
+table.five center {
+  min-width: 230px;
+}
+
+/* line 162, ../../src/scss/_ink.scss */
+table.six center {
+  min-width: 280px;
+}
+
+/* line 163, ../../src/scss/_ink.scss */
+table.seven center {
+  min-width: 330px;
+}
+
+/* line 164, ../../src/scss/_ink.scss */
+table.eight center {
+  min-width: 380px;
+}
+
+/* line 165, ../../src/scss/_ink.scss */
+table.nine center {
+  min-width: 430px;
+}
+
+/* line 166, ../../src/scss/_ink.scss */
+table.ten center {
+  min-width: 480px;
+}
+
+/* line 167, ../../src/scss/_ink.scss */
+table.eleven center {
+  min-width: 530px;
+}
+
+/* line 168, ../../src/scss/_ink.scss */
+table.twelve center {
+  min-width: 580px;
+}
+
+/* line 170, ../../src/scss/_ink.scss */
+table.one .panel center {
+  min-width: 10px;
+}
+
+/* line 171, ../../src/scss/_ink.scss */
+table.two .panel center {
+  min-width: 60px;
+}
+
+/* line 172, ../../src/scss/_ink.scss */
+table.three .panel center {
+  min-width: 110px;
+}
+
+/* line 173, ../../src/scss/_ink.scss */
+table.four .panel center {
+  min-width: 160px;
+}
+
+/* line 174, ../../src/scss/_ink.scss */
+table.five .panel center {
+  min-width: 210px;
+}
+
+/* line 175, ../../src/scss/_ink.scss */
+table.six .panel center {
+  min-width: 260px;
+}
+
+/* line 176, ../../src/scss/_ink.scss */
+table.seven .panel center {
+  min-width: 310px;
+}
+
+/* line 177, ../../src/scss/_ink.scss */
+table.eight .panel center {
+  min-width: 360px;
+}
+
+/* line 178, ../../src/scss/_ink.scss */
+table.nine .panel center {
+  min-width: 410px;
+}
+
+/* line 179, ../../src/scss/_ink.scss */
+table.ten .panel center {
+  min-width: 460px;
+}
+
+/* line 180, ../../src/scss/_ink.scss */
+table.eleven .panel center {
+  min-width: 510px;
+}
+
+/* line 181, ../../src/scss/_ink.scss */
+table.twelve .panel center {
+  min-width: 560px;
+}
+
+/* line 183, ../../src/scss/_ink.scss */
+.body .columns td.one,
+.body .column td.one {
+  width: 8.333333%;
+}
+
+/* line 185, ../../src/scss/_ink.scss */
+.body .columns td.two,
+.body .column td.two {
+  width: 16.666666%;
+}
+
+/* line 187, ../../src/scss/_ink.scss */
+.body .columns td.three,
+.body .column td.three {
+  width: 25%;
+}
+
+/* line 189, ../../src/scss/_ink.scss */
+.body .columns td.four,
+.body .column td.four {
+  width: 33.333333%;
+}
+
+/* line 191, ../../src/scss/_ink.scss */
+.body .columns td.five,
+.body .column td.five {
+  width: 41.666666%;
+}
+
+/* line 193, ../../src/scss/_ink.scss */
+.body .columns td.six,
+.body .column td.six {
+  width: 50%;
+}
+
+/* line 195, ../../src/scss/_ink.scss */
+.body .columns td.seven,
+.body .column td.seven {
+  width: 58.333333%;
+}
+
+/* line 197, ../../src/scss/_ink.scss */
+.body .columns td.eight,
+.body .column td.eight {
+  width: 66.666666%;
+}
+
+/* line 199, ../../src/scss/_ink.scss */
+.body .columns td.nine,
+.body .column td.nine {
+  width: 75%;
+}
+
+/* line 201, ../../src/scss/_ink.scss */
+.body .columns td.ten,
+.body .column td.ten {
+  width: 83.333333%;
+}
+
+/* line 203, ../../src/scss/_ink.scss */
+.body .columns td.eleven,
+.body .column td.eleven {
+  width: 91.666666%;
+}
+
+/* line 205, ../../src/scss/_ink.scss */
+.body .columns td.twelve,
+.body .column td.twelve {
+  width: 100%;
+}
+
+/* line 208, ../../src/scss/_ink.scss */
+td.offset-by-one {
+  padding-left: 50px;
+}
+
+/* line 209, ../../src/scss/_ink.scss */
+td.offset-by-two {
+  padding-left: 100px;
+}
+
+/* line 210, ../../src/scss/_ink.scss */
+td.offset-by-three {
+  padding-left: 150px;
+}
+
+/* line 211, ../../src/scss/_ink.scss */
+td.offset-by-four {
+  padding-left: 200px;
+}
+
+/* line 212, ../../src/scss/_ink.scss */
+td.offset-by-five {
+  padding-left: 250px;
+}
+
+/* line 213, ../../src/scss/_ink.scss */
+td.offset-by-six {
+  padding-left: 300px;
+}
+
+/* line 214, ../../src/scss/_ink.scss */
+td.offset-by-seven {
+  padding-left: 350px;
+}
+
+/* line 215, ../../src/scss/_ink.scss */
+td.offset-by-eight {
+  padding-left: 400px;
+}
+
+/* line 216, ../../src/scss/_ink.scss */
+td.offset-by-nine {
+  padding-left: 450px;
+}
+
+/* line 217, ../../src/scss/_ink.scss */
+td.offset-by-ten {
+  padding-left: 500px;
+}
+
+/* line 218, ../../src/scss/_ink.scss */
+td.offset-by-eleven {
+  padding-left: 550px;
+}
+
+/* line 220, ../../src/scss/_ink.scss */
+td.expander {
+  visibility: hidden;
+  width: 0px;
+  padding: 0 !important;
+}
+
+/* line 226, ../../src/scss/_ink.scss */
+table.columns .text-pad,
+table.column .text-pad {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 232, ../../src/scss/_ink.scss */
+table.columns .left-text-pad,
+table.columns .text-pad-left,
+table.column .left-text-pad,
+table.column .text-pad-left {
+  padding-left: 10px;
+}
+
+/* line 239, ../../src/scss/_ink.scss */
+table.columns .right-text-pad,
+table.columns .text-pad-right,
+table.column .right-text-pad,
+table.column .text-pad-right {
+  padding-right: 10px;
+}
+
+/* Block Grid */
+/* line 248, ../../src/scss/_ink.scss */
+.block-grid {
+  width: 100%;
+  max-width: 580px;
+}
+
+/* line 253, ../../src/scss/_ink.scss */
+.block-grid td {
+  display: inline-block;
+  padding: 10px;
+}
+
+/* line 258, ../../src/scss/_ink.scss */
+.two-up td {
+  width: 270px;
+}
+
+/* line 262, ../../src/scss/_ink.scss */
+.three-up td {
+  width: 173px;
+}
+
+/* line 266, ../../src/scss/_ink.scss */
+.four-up td {
+  width: 125px;
+}
+
+/* line 270, ../../src/scss/_ink.scss */
+.five-up td {
+  width: 96px;
+}
+
+/* line 274, ../../src/scss/_ink.scss */
+.six-up td {
+  width: 76px;
+}
+
+/* line 278, ../../src/scss/_ink.scss */
+.seven-up td {
+  width: 62px;
+}
+
+/* line 282, ../../src/scss/_ink.scss */
+.eight-up td {
+  width: 52px;
+}
+
+/* Alignment & Visibility Classes */
+/* line 288, ../../src/scss/_ink.scss */
+table.center, td.center {
+  text-align: center;
+}
+
+/* line 292, ../../src/scss/_ink.scss */
+h1.center,
+h2.center,
+h3.center,
+h4.center,
+h5.center,
+h6.center {
+  text-align: center;
+}
+
+/* line 301, ../../src/scss/_ink.scss */
+span.center {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 307, ../../src/scss/_ink.scss */
+img.center {
+  margin: 0 auto;
+  float: none;
+}
+
+/* line 312, ../../src/scss/_ink.scss */
+.show-for-small,
+.hide-for-desktop {
+  display: none;
+}
+
+/* Typography */
+/* line 319, ../../src/scss/_ink.scss */
+body, table.body, h1, h2, h3, h4, h5, h6, p, td {
+  color: #222222;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  line-height: 1.3;
+}
+
+/* line 329, ../../src/scss/_ink.scss */
+h1, h2, h3, h4, h5, h6 {
+  word-break: normal;
+}
+
+/* line 333, ../../src/scss/_ink.scss */
+h1 {
+  font-size: 40px;
+}
+
+/* line 334, ../../src/scss/_ink.scss */
+h2 {
+  font-size: 36px;
+}
+
+/* line 335, ../../src/scss/_ink.scss */
+h3 {
+  font-size: 32px;
+}
+
+/* line 336, ../../src/scss/_ink.scss */
+h4 {
+  font-size: 28px;
+}
+
+/* line 337, ../../src/scss/_ink.scss */
+h5 {
+  font-size: 24px;
+}
+
+/* line 338, ../../src/scss/_ink.scss */
+h6 {
+  font-size: 20px;
+}
+
+/* line 339, ../../src/scss/_ink.scss */
+body, table.body, p, td {
+  font-size: 14px;
+  line-height: 19px;
+}
+
+/* line 341, ../../src/scss/_ink.scss */
+p.lead, p.lede, p.leed {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+/* line 346, ../../src/scss/_ink.scss */
+p {
+  margin-bottom: 10px;
+}
+
+/* line 350, ../../src/scss/_ink.scss */
+small {
+  font-size: 10px;
+}
+
+/* line 354, ../../src/scss/_ink.scss */
+a {
+  color: #2ba6cb;
+  text-decoration: none;
+}
+
+/* line 359, ../../src/scss/_ink.scss */
+a:hover {
+  color: #2795b6 !important;
+}
+
+/* line 363, ../../src/scss/_ink.scss */
+a:active {
+  color: #2795b6 !important;
+}
+
+/* line 367, ../../src/scss/_ink.scss */
+a:visited {
+  color: #2ba6cb !important;
+}
+
+/* line 371, ../../src/scss/_ink.scss */
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: #2ba6cb;
+}
+
+/* line 380, ../../src/scss/_ink.scss */
+h1 a:active,
+h2 a:active,
+h3 a:active,
+h4 a:active,
+h5 a:active,
+h6 a:active {
+  color: #2ba6cb !important;
+}
+
+/* line 389, ../../src/scss/_ink.scss */
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited,
+h5 a:visited,
+h6 a:visited {
+  color: #2ba6cb !important;
+}
+
+/* Panels */
+/* line 400, ../../src/scss/_ink.scss */
+.panel {
+  background: #f2f2f2;
+  border: 1px solid #d9d9d9;
+  padding: 10px !important;
+}
+
+/* line 406, ../../src/scss/_ink.scss */
+.sub-grid table {
+  width: 100%;
+}
+
+/* line 410, ../../src/scss/_ink.scss */
+.sub-grid td.sub-columns {
+  padding-bottom: 0;
+}
+
+/* Buttons */
+/* line 416, ../../src/scss/_ink.scss */
+table.button,
+table.tiny-button,
+table.small-button,
+table.medium-button,
+table.large-button {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* line 425, ../../src/scss/_ink.scss */
+table.button td,
+table.tiny-button td,
+table.small-button td,
+table.medium-button td,
+table.large-button td {
+  display: block;
+  width: auto !important;
+  text-align: center;
+  background: #2ba6cb;
+  border: 1px solid #2284a1;
+  color: #ffffff;
+  padding: 8px 0;
+}
+
+/* line 439, ../../src/scss/_ink.scss */
+table.tiny-button td {
+  padding: 5px 0 4px;
+}
+
+/* line 443, ../../src/scss/_ink.scss */
+table.small-button td {
+  padding: 8px 0 7px;
+}
+
+/* line 447, ../../src/scss/_ink.scss */
+table.medium-button td {
+  padding: 12px 0 10px;
+}
+
+/* line 451, ../../src/scss/_ink.scss */
+table.large-button td {
+  padding: 21px 0 18px;
+}
+
+/* line 455, ../../src/scss/_ink.scss */
+table.button td a,
+table.tiny-button td a,
+table.small-button td a,
+table.medium-button td a,
+table.large-button td a {
+  font-weight: bold;
+  text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+/* line 467, ../../src/scss/_ink.scss */
+table.tiny-button td a {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+/* line 472, ../../src/scss/_ink.scss */
+table.small-button td a {
+  font-size: 16px;
+}
+
+/* line 476, ../../src/scss/_ink.scss */
+table.medium-button td a {
+  font-size: 20px;
+}
+
+/* line 480, ../../src/scss/_ink.scss */
+table.large-button td a {
+  font-size: 24px;
+}
+
+/* line 484, ../../src/scss/_ink.scss */
+table.button:hover td,
+table.button:visited td,
+table.button:active td {
+  background: #2795b6 !important;
+}
+
+/* line 490, ../../src/scss/_ink.scss */
+table.button:hover td a,
+table.button:visited td a,
+table.button:active td a {
+  color: #fff !important;
+}
+
+/* line 496, ../../src/scss/_ink.scss */
+table.button:hover td,
+table.tiny-button:hover td,
+table.small-button:hover td,
+table.medium-button:hover td,
+table.large-button:hover td {
+  background: #2795b6 !important;
+}
+
+/* line 504, ../../src/scss/_ink.scss */
+table.button:hover td a,
+table.button:active td a,
+table.button td a:visited,
+table.tiny-button:hover td a,
+table.tiny-button:active td a,
+table.tiny-button td a:visited,
+table.small-button:hover td a,
+table.small-button:active td a,
+table.small-button td a:visited,
+table.medium-button:hover td a,
+table.medium-button:active td a,
+table.medium-button td a:visited,
+table.large-button:hover td a,
+table.large-button:active td a,
+table.large-button td a:visited {
+  color: #ffffff !important;
+}
+
+/* line 522, ../../src/scss/_ink.scss */
+table.secondary td {
+  background: #e9e9e9;
+  border-color: #d0d0d0;
+  color: #555;
+}
+
+/* line 528, ../../src/scss/_ink.scss */
+table.secondary td a {
+  color: #555;
+}
+
+/* line 532, ../../src/scss/_ink.scss */
+table.secondary:hover td {
+  background: #d0d0d0 !important;
+  color: #555;
+}
+
+/* line 537, ../../src/scss/_ink.scss */
+table.secondary:hover td a,
+table.secondary td a:visited,
+table.secondary:active td a {
+  color: #555 !important;
+}
+
+/* line 543, ../../src/scss/_ink.scss */
+table.success td {
+  background: #5da423;
+  border-color: #457a1a;
+}
+
+/* line 548, ../../src/scss/_ink.scss */
+table.success:hover td {
+  background: #457a1a !important;
+}
+
+/* line 552, ../../src/scss/_ink.scss */
+table.alert td {
+  background: #c60f13;
+  border-color: #970b0e;
+}
+
+/* line 557, ../../src/scss/_ink.scss */
+table.alert:hover td {
+  background: #970b0e !important;
+}
+
+/* line 561, ../../src/scss/_ink.scss */
+table.radius td {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 567, ../../src/scss/_ink.scss */
+table.round td {
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
+}
+
+/* Outlook First */
+/* line 575, ../../src/scss/_ink.scss */
+body.outlook p {
+  display: inline !important;
+}
+
+/*  Media Queries */
+@media only screen and (max-width: 600px) {
+  /* line 583, ../../src/scss/_ink.scss */
+  table[class="body"] img {
+    width: auto !important;
+    height: auto !important;
+  }
+
+  /* line 588, ../../src/scss/_ink.scss */
+  table[class="body"] center {
+    min-width: 0 !important;
+  }
+
+  /* line 592, ../../src/scss/_ink.scss */
+  table[class="body"] .container {
+    width: 95% !important;
+  }
+
+  /* line 596, ../../src/scss/_ink.scss */
+  table[class="body"] .row {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  /* line 601, ../../src/scss/_ink.scss */
+  table[class="body"] .wrapper {
+    display: block !important;
+    padding-right: 0 !important;
+  }
+
+  /* line 606, ../../src/scss/_ink.scss */
+  table[class="body"] .columns,
+  table[class="body"] .column {
+    table-layout: fixed !important;
+    float: none !important;
+    width: 100% !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    display: block !important;
+  }
+
+  /* line 616, ../../src/scss/_ink.scss */
+  table[class="body"] .wrapper.first .columns,
+  table[class="body"] .wrapper.first .column {
+    display: table !important;
+  }
+
+  /* line 621, ../../src/scss/_ink.scss */
+  table[class="body"] table.columns td,
+  table[class="body"] table.column td {
+    width: 100% !important;
+  }
+
+  /* line 626, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.one,
+  table[class="body"] .column td.one {
+    width: 8.333333% !important;
+  }
+
+  /* line 628, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.two,
+  table[class="body"] .column td.two {
+    width: 16.666666% !important;
+  }
+
+  /* line 630, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.three,
+  table[class="body"] .column td.three {
+    width: 25% !important;
+  }
+
+  /* line 632, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.four,
+  table[class="body"] .column td.four {
+    width: 33.333333% !important;
+  }
+
+  /* line 634, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.five,
+  table[class="body"] .column td.five {
+    width: 41.666666% !important;
+  }
+
+  /* line 636, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.six,
+  table[class="body"] .column td.six {
+    width: 50% !important;
+  }
+
+  /* line 638, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.seven,
+  table[class="body"] .column td.seven {
+    width: 58.333333% !important;
+  }
+
+  /* line 640, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.eight,
+  table[class="body"] .column td.eight {
+    width: 66.666666% !important;
+  }
+
+  /* line 642, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.nine,
+  table[class="body"] .column td.nine {
+    width: 75% !important;
+  }
+
+  /* line 644, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.ten,
+  table[class="body"] .column td.ten {
+    width: 83.333333% !important;
+  }
+
+  /* line 646, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.eleven,
+  table[class="body"] .column td.eleven {
+    width: 91.666666% !important;
+  }
+
+  /* line 648, ../../src/scss/_ink.scss */
+  table[class="body"] .columns td.twelve,
+  table[class="body"] .column td.twelve {
+    width: 100% !important;
+  }
+
+  /* line 651, ../../src/scss/_ink.scss */
+  table[class="body"] td.offset-by-one,
+  table[class="body"] td.offset-by-two,
+  table[class="body"] td.offset-by-three,
+  table[class="body"] td.offset-by-four,
+  table[class="body"] td.offset-by-five,
+  table[class="body"] td.offset-by-six,
+  table[class="body"] td.offset-by-seven,
+  table[class="body"] td.offset-by-eight,
+  table[class="body"] td.offset-by-nine,
+  table[class="body"] td.offset-by-ten,
+  table[class="body"] td.offset-by-eleven {
+    padding-left: 0 !important;
+  }
+
+  /* line 665, ../../src/scss/_ink.scss */
+  table[class="body"] table.columns td.expander {
+    width: 1px !important;
+  }
+
+  /* line 669, ../../src/scss/_ink.scss */
+  table[class="body"] .right-text-pad,
+  table[class="body"] .text-pad-right {
+    padding-left: 10px !important;
+  }
+
+  /* line 674, ../../src/scss/_ink.scss */
+  table[class="body"] .left-text-pad,
+  table[class="body"] .text-pad-left {
+    padding-right: 10px !important;
+  }
+
+  /* line 679, ../../src/scss/_ink.scss */
+  table[class="body"] .hide-for-small,
+  table[class="body"] .show-for-desktop {
+    display: none !important;
+  }
+
+  /* line 684, ../../src/scss/_ink.scss */
+  table[class="body"] .show-for-small,
+  table[class="body"] .hide-for-desktop {
+    display: inherit !important;
+  }
+}
+/* Remove spacing around Outlook 07, 10 tables
+Bring inline: Yes */
+/* line 3, ../../src/scss/_base.scss */
+table {
+  border-collapse: collapse;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
